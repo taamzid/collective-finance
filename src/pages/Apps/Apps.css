@@ -1,0 +1,34 @@
+.app-page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+}
+.app-page h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.app-page h1 span {
+  font-weight: 600;
+  color: gray;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.bottom-app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/public/assets/bg.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.bottom-app h2 {
+  font-size: 18px;
+  color: white;
+}

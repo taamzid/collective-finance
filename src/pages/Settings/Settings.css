@@ -1,0 +1,91 @@
+.bottom-settings {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 10px auto;
+  column-gap: 60px;
+}
+.left-settings {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #4ca2af;
+  padding: 3rem 1rem;
+  border-radius: 10px;
+}
+.left-settings a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.left-settings .active-settings-link {
+  text-decoration: underline;
+}
+.right-settings {
+  width: 100%;
+  min-height: 400px;
+  border-radius: 10px;
+  overflow-x: hidden;
+}
+.mob-icon {
+  display: none;
+}
+.set-overlay {
+  display: none;
+}
+@media screen and (max-width: 918px) {
+  .bottom-settings {
+    grid-template-columns: auto 1fr;
+  }
+  .left-settings a {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 856px) {
+  .bottom-settings {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 30px;
+    position: relative;
+  }
+
+  .left-settings {
+    width: 340px;
+    position: fixed;
+    left: -600px;
+    top: 0;
+    height: 100%;
+    padding: 4rem 2rem;
+    z-index: 66;
+    transition: all 0.5s ease-in-out;
+  }
+  .left-settings-open {
+    left: 0;
+  }
+  .mob-icon {
+    display: block;
+    color: white;
+    font-size: 30px;
+  }
+  .left-settings .mob-icon {
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    color: white;
+  }
+  .set-overlay {
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 65;
+  }
+  .open-overlay {
+    display: block;
+  }
+}

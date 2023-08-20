@@ -1,0 +1,24 @@
+.log table td {
+  text-align: left;
+  padding-inline: 10px;
+}
+.log table {
+  width: 100%;
+  table-layout: initial;
+}
+.log .table-wrapper {
+  width: 100%;
+}
+@media screen and (max-width: 1166px) {
+  .log table {
+    min-width: 1000px;
+  }
+  .table-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: scroll;
+    max-width: 610px;
+  }
+}

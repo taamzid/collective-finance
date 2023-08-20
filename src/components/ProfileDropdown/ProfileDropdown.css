@@ -1,0 +1,30 @@
+.profileDropdown {
+  --scale: 0;
+
+  display: flex;
+  position: absolute;
+  transform: translate(-59px, 100px) scaleY(var(--scale));
+  background-color: white;
+  color: black;
+  width: 150px;
+  padding-block: 0.5rem;
+  gap: 0.5rem;
+  flex-direction: column;
+  transform-origin: top;
+  border-radius: 8px;
+  transition: transform 0.15s;
+}
+
+.profileDropdown__isActive {
+  --scale: 1;
+}
+
+.profileDropdown > span {
+  width: 100%;
+  text-align: center;
+  padding-block: 0.5rem;
+}
+
+.profileDropdown > span:hover {
+  background-color: hsla(0, 0%, 0%, 0.2);
+}

@@ -1,0 +1,50 @@
+.social {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+}
+.social-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+.social-row:first-of-type {
+  margin-top: 20px;
+}
+.social-row label {
+  width: 120px;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+}
+.social-row input {
+  width: 100%;
+  height: 35px;
+  border-radius: 3px;
+  border: none;
+  max-width: 300px;
+  border: 2px solid #4ca2af;
+}
+.social-row .aqua-btn {
+  height: 35px;
+  width: 80px;
+  font-size: 17px;
+  border-radius: 10px;
+}
+@media screen and (max-width: 508px) {
+  .social-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .social-row .aqua-btn {
+    width: 100%;
+  }
+  .social-row input {
+    max-width: none;
+  }
+}

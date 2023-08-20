@@ -1,0 +1,83 @@
+.two-factor {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+}
+.two-factor h1 {
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  width: 100%;
+  color: white;
+}
+.two-factor ol {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 3rem;
+}
+.two-factor li {
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+}
+.qr {
+  margin-top: 30px;
+}
+.qr,
+.two-factor li > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.qr a {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #4ca2af;
+  text-decoration: none;
+  font-weight: bold;
+}
+.two-factor li > div {
+  gap: 10px;
+  margin-top: 30px;
+}
+@media screen and (max-width: 1110px) {
+  .two-factor ol {
+    padding-left: 1rem;
+  }
+  .qr {
+    width: 100%;
+    align-items: center;
+  }
+  .two-factor h1 {
+    font-size: 20px;
+  }
+  .bottom-settings {
+    gap: 20px;
+  }
+  .btn-div {
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+  }
+  .btn-div .aqua-btn {
+    max-width: none;
+    width: 100%;
+  }
+  .input-div {
+    max-width: none;
+  }
+  .input-div .input-div {
+    width: 100%;
+    max-width: none;
+  }
+}

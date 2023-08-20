@@ -1,0 +1,16 @@
+@media screen and (max-width: 924px) {
+  .pwd .row h1 {
+    font-size: 25px;
+  }
+  .pwd .row p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .pwd .row h1 {
+    font-size: 20px;
+  }
+  .pwd .row p {
+    font-size: 12px;
+  }
+}

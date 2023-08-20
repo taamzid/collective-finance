@@ -1,0 +1,62 @@
+.account {
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+}
+.account .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.account .row h1 {
+  color: white;
+  font-size: 34px;
+}
+.input-div strong {
+  color: white;
+}
+.btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.btn-div .aqua-btn {
+  width: 150px;
+  border-radius: 4px;
+  height: 40px;
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+}
+.btn-div .inverse {
+  color: white;
+  background-color: transparent;
+  border: 2px solid #4ca2af;
+}
+.btn-div .inverse:hover {
+  background-color: #4ca2af;
+  color: white;
+}
+@media screen and (max-width: 500px) {
+  .account .row h1 {
+    font-size: 25px;
+  }
+  .account .row p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .btn-div {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .btn-div .aqua-btn {
+    width: 100%;
+  }
+}

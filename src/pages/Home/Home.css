@@ -1,0 +1,164 @@
+.home {
+  --max-width: 600px;
+
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-inline: 1rem;
+}
+
+.home__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 600px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.home__headerLeft > svg {
+  color: white;
+  cursor: pointer;
+}
+
+.home__headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.home__headerLeft > img {
+  width: 20px;
+}
+
+.home__user {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.home__topWrapper {
+  border-top: 1px solid hsla(0, 0%, 0%, 10%);
+  width: 100%;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 10%);
+  display: flex;
+  justify-content: center;
+}
+
+.home__top {
+  border-radius: 8px;
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 2px solid #4ca2af;
+  max-width: var(--max-width);
+}
+
+.home__topHeading {
+  color: #4ca2af;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.home__topSubheading {
+  color: #4ca2af;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.home__topPara {
+  color: white;
+}
+
+.home__bottom {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-block: 2rem 1rem;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+.home__blockchain {
+  height: 50px;
+  font-size: 16px;
+  color: white;
+  border: 2px solid #4ca2af;
+  background-color: transparent;
+  border-radius: 4px;
+  box-shadow: 0 0 10px -5px black;
+  text-align: left;
+  padding-inline: 1.25rem;
+  gap: 1.25rem;
+  cursor: pointer;
+}
+
+.home__blockchainSelected {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 6rem;
+  padding-block: 2rem 1rem;
+  max-width: var(--max-width);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.home__blockchainSelected > div {
+  color: white;
+  background-color: #4ca2af;
+  padding: 1rem;
+  font-weight: 300;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px -6px black;
+}
+
+.home__createWallet,
+.home__importWallet {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #4ca2af;
+  font-size: 18px;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 0 10px -6px black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 4px;
+}
+
+.home__back {
+  margin-top: 1.5rem;
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  margin-inline: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+}
+
+.show-blockchain {
+  display: flex;
+}
+
+.show-bottom {
+  display: flex;
+}

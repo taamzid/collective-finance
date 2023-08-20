@@ -1,0 +1,51 @@
+.container {
+  min-height: 50vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+.reg {
+  color: black;
+  background-color: white;
+}
+
+.register {
+  width: 100%;
+  max-width: 600px;
+}
+
+.register__top {
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 10vh;
+}
+
+.register__logoGif {
+  width: 100%;
+}
+
+.img-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+	margin: 0.5rem;
+	padding: 0.7rem;
+	text-align: center;
+	color: #0070f3;
+	background-color: #fafafa;
+	text-decoration: none;
+	border: 1px solid #0070f3;
+	border-radius: 10px;
+	transition: color 0.15s ease, border-color 0.15s ease;
+	width: 100%;
+  cursor: pointer;
+}

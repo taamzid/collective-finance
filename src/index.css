@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Open Sans;
+}
+
+body {
+  background-color: #121529;
+}
+
+.aqua-btn {
+  background-color: #4ca2af;
+  color: white;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.bgwhite-border-btn {
+  border: 1px solid hsl(0, 0%, 40%);
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding-inline: 1rem;
+}
+input::placeholder {
+  font-family: Open Sans;
+}

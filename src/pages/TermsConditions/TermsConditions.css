@@ -1,0 +1,51 @@
+.terms {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.terms__header {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 20px 1rem;
+}
+
+.terms__header > svg {
+  cursor: pointer;
+}
+
+.terms__header > img {
+  width: 20px;
+}
+
+.terms__container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #4ca2af;
+  border-radius: 8px;
+  gap: 1.5rem;
+}
+
+.terms__para {
+  color: white;
+}
+
+.terms__para > span {
+  color: #4ca2af;
+  cursor: pointer;
+}
+
+.terms__actions {
+  display: flex;
+  gap: 1rem;
+  align-self: flex-end;
+}
+
+.terms__actions > * {
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-size: 15px;
+}
