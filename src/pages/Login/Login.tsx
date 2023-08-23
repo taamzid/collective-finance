@@ -5,7 +5,7 @@ import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from "@web3auth/base";
 import { OpenloginAdapter } from "@web3auth/openlogin-adapter";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import "./Login.css";
-import RPC from "../../web3RPC"; // for using web3.js
+import RPC from "../../pages/web3RPC/web3RPC"; // for using web3.js
 //import RPC from "./ethersRPC"; // for using ethers.js
 
 // Plugins
