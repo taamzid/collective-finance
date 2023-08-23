@@ -26,6 +26,8 @@ import {
 } from "@web3auth/wallet-connect-v2-adapter";
 import { MetamaskAdapter } from "@web3auth/metamask-adapter";
 import { TorusWalletAdapter } from "@web3auth/torus-evm-adapter";
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import axios from "axios";
 const clientId =
   "BEglQSgt4cUWcj6SKRdu5QkOXTsePmMcusG5EAoyjyOYKlVRjIF1iCNnMOTfpzCiunHRrMui8TIwQPXdkQ8Yxuk";
 
@@ -42,10 +44,10 @@ export default function Inventory() {
   );
   const [loggedIn, setLoggedIn] = useState(false);
   const [balance, setBalance] = useState("");
-  const [walletAddress, setWalletAddress] = useState("");
+  const [nfts, setNFTs] = useState<any[]>([]);
 
   function copyAddress() {
-    navigator.clipboard.writeText(walletAddress).then(() => {
+    navigator.clipboard.writeText(address).then(() => {
       alert("Wallet Address Copied");
     });
   }
@@ -199,7 +201,7 @@ export default function Inventory() {
     const address = await rpc.getAccounts();
     setAddress(address);
     uiConsole(address);
-    console.log(address)
+    console.log(address);
   };
 
   useEffect(() => {
@@ -219,7 +221,7 @@ export default function Inventory() {
 
     fetchAccounts();
   }, [provider]);
-  
+
   const getBalance = async () => {
     if (!provider) {
       uiConsole("provider not initialized yet");
@@ -285,6 +287,19 @@ export default function Inventory() {
     }
   }
 
+  useEffect(() => {
+    axios
+      .get("https://chat-backends-d0a914c9d2e6.herokuapp.com/wallet/getNft")
+      .then((response) => {
+        const data = response.data;
+        console.log(data.data, "data");
+        setNFTs(data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className="inventory">
       <div className="header__wrapper">
@@ -318,7 +333,12 @@ export default function Inventory() {
 
           <div className="inventory__topDown">
             <span className="inventory__id">
-              {address} <FontAwesomeIcon onClick={copyAddress} icon={faPaste} />
+              {address}{" "}
+              <FontAwesomeIcon
+                onClick={copyAddress}
+                style={{ cursor: "pointer" }}
+                icon={faPaste}
+              />
             </span>
 
             <span className="inventory__buy">Buy ETH</span>
@@ -329,7 +349,7 @@ export default function Inventory() {
       <div className="inventory__centerWrapper">
         <div className="inventory__center">
           <div className="inventory__centerLeft">
-            <NavLink
+            {/* <NavLink
               className={({ isActive }) => {
                 return isActive ? "inventory__selected" : "";
               }}
@@ -337,7 +357,8 @@ export default function Inventory() {
             >
               <FontAwesomeIcon icon={faHorse} />
               <span>NFT</span>
-            </NavLink>
+            </NavLink> */}
+
             <NavLink
               className={({ isActive }) => {
                 return isActive ? "inventory__selected" : "";
@@ -351,12 +372,30 @@ export default function Inventory() {
               className={({ isActive }) => {
                 return isActive ? "inventory__selected" : "";
               }}
+              to={"/inventory/OwnNft/"}
+            >
+              <FontAwesomeIcon icon={faHorse} />
+              <span>My NFTs</span>
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? "inventory__selected" : "";
+              }}
+              to={"/inventory/MintNft/"}
+            >
+              <FontAwesomeIcon icon={faHorse} />
+              <span>Mint NFTs</span>
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? "inventory__selected" : "";
+              }}
               to={"/inventory/transaction"}
             >
               <FontAwesomeIcon icon={faArrowRightArrowLeft} />
               <span>Transactions</span>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               className={({ isActive }) => {
                 return isActive ? "inventory__selected" : "";
               }}
@@ -373,7 +412,7 @@ export default function Inventory() {
             >
               <FontAwesomeIcon icon={faGrip} />
               <span>App</span>
-            </NavLink>
+            </NavLink> */}
             <NavLink
               className={({ isActive }) => {
                 return isActive ? "inventory__selected" : "";
@@ -400,12 +439,17 @@ export default function Inventory() {
                     <div className="row">
                       <p>Balance</p>
                       <h3>
-                        {balance} <sup>USD</sup> <a href="#">Buy ETH</a>{" "}
+                        {balance} <sup>USD</sup>
+                        {/* <a href="#">Buy ETH</a>{" "} */}
                       </h3>
                     </div>
                     <div className="row">
                       <p>Tokens</p>
-                      <h4>No tokens found</h4>
+                      {nfts.length === 0 ? (
+                        <h4>No tokens found</h4>
+                      ) : (
+                        <h4>{nfts.length} tokens found</h4>
+                      )}
                     </div>
                   </div>
                   <div className="col">
@@ -416,14 +460,28 @@ export default function Inventory() {
                         <FontAwesomeIcon
                           style={{ cursor: "pointer" }}
                           icon={faCopy}
-                          // onClick={copyAddress}
+                          onClick={copyAddress}
                         />
                       </h4>
                     </div>
-                    <div className="row">
+                    {/* <div className="row">
                       <p>Connected Apps</p>
                       <h4>No connected apps found</h4>
-                    </div>
+                    </div> */}
+                    {/* <div>
+                      <CrossmintPayButton
+                        collectionId="ffb4f453-659d-48bd-99d7-8f45f792ff73"
+                        projectId="31feedb2-4ae4-4328-9efe-9bc177f9fb24"
+                        mintConfig={{
+                          type: "managed-metaplex",
+                          totalPrice: "1",
+                          quantity: "1",
+                        }}
+                        environment="staging"
+                        mintTo={address}
+                      />
+                    </div> */}
+                    <div></div>
                   </div>
                 </div>
                 <hr style={{ width: "100%", margin: "10px 0px" }} />
@@ -438,7 +496,7 @@ export default function Inventory() {
 
       <div className="inventory__footerWrapper">
         <div className="inventory__footer">
-          <NavLink
+          {/* <NavLink
             className={({ isActive }) => {
               return isActive ? "inventory__selected" : "";
             }}
@@ -446,7 +504,7 @@ export default function Inventory() {
           >
             <FontAwesomeIcon icon={faHorse} />
             <span>NFT</span>
-          </NavLink>
+          </NavLink> */}
           <NavLink
             className={({ isActive }) => {
               return isActive ? "inventory__selected" : "";
@@ -465,7 +523,7 @@ export default function Inventory() {
             <FontAwesomeIcon icon={faArrowRightArrowLeft} />
             <span>Transactions</span>
           </NavLink>
-          <NavLink
+          {/* <NavLink
             className={({ isActive }) => {
               return isActive ? "inventory__selected" : "";
             }}
@@ -473,8 +531,8 @@ export default function Inventory() {
           >
             <FontAwesomeIcon icon={faRotate} />
             <span>Swap</span>
-          </NavLink>
-          <NavLink
+          </NavLink> */}
+          {/* <NavLink
             className={({ isActive }) => {
               return isActive ? "inventory__selected" : "";
             }}
@@ -482,8 +540,8 @@ export default function Inventory() {
           >
             <FontAwesomeIcon icon={faChartLine} />
             <span>Activity</span>
-          </NavLink>
-          <NavLink
+          </NavLink> */}
+          {/* <NavLink
             className={({ isActive }) => {
               return isActive ? "inventory__selected" : "";
             }}
@@ -491,7 +549,7 @@ export default function Inventory() {
           >
             <FontAwesomeIcon icon={faGrip} />
             <span>App</span>
-          </NavLink>
+          </NavLink> */}
           <NavLink
             className={({ isActive }) => {
               return isActive ? "inventory__selected" : "";

@@ -1,0 +1,39 @@
+.nft-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .nft-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .nft-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .nft-name {
+    font-weight: bold;
+  }
+  
+  .nft-token-id {
+    color: #666;
+  }
+  
+  .mint-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+  

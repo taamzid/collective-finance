@@ -22,8 +22,35 @@ import Log from "./pages/Log/Log";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import PrivacyPolicy from "./pages/Privacy Policy/PrivacyPolicy";
+import NFTOWN from "./pages/OwnNft/OwnNft";
+import NFTDisplay from "./pages/NftMint/MintNft";
+import { useState } from "react";
 
 const App = () => {
+  const [address, setAddress] = useState("");
+  const nfts = [
+    {
+      tokenId: 1,
+      name: "NFT 1",
+      imageSrc: "https://th.bing.com/th/id/OIG.lVXjWwlHyIo4QdjnC1YE",
+      address: address,
+      price: "0.1",
+    },
+    {
+      tokenId: 2,
+      name: "NFT 2",
+      imageSrc: "https://th.bing.com/th/id/OIG.lVXjWwlHyIo4QdjnC1YE",
+      address: address,
+      price: "0.2",
+    },
+    {
+      tokenId: 3,
+      name: "NFT 3",
+      imageSrc: "https://th.bing.com/th/id/OIG.lVXjWwlHyIo4QdjnC1YE",
+      address: address,
+      price: "0.3",
+    },
+  ];
   return (
     <Router>
       <Routes>
@@ -42,6 +69,8 @@ const App = () => {
         <Route path="/inventory" element={<Inventory />}>
           <Route path="" element={<Nft />} />
           <Route path="token" element={<Tokens />} />
+          <Route path="OwnNft" element={<NFTOWN />} />
+          <Route path="MintNft" element={<NFTDisplay nfts={nfts} />} />
           <Route path="transaction" element={<Transaction />} />
           <Route path="swap" element={<Swap />} />
           <Route path="activity" element={<Activity />} />
@@ -56,7 +85,7 @@ const App = () => {
             <Route path="log" element={<Log />} />
           </Route>
         </Route>
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );

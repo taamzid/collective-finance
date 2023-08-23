@@ -33,3 +33,7 @@
   font-size: 18px;
   color: white;
 }
+
+.bottom-token{
+    display: flex;
+}

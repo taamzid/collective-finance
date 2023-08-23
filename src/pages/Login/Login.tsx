@@ -221,7 +221,7 @@ function Login() {
 
   useEffect(() => {
     if (loggedIn) {
-      navigate("/inventory");
+      navigate("/inventory/token");
     }
   }, [loggedIn, navigate]);
 
