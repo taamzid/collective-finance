@@ -14,25 +14,25 @@ interface NFTDisplayProps {
 }
 
 const NFTAll: React.FC = () => {
-  const [nfts, setNFTs] = useState<any[]>([]); // Use an appropriate type for NFT data
+  // const [nfts, setNFTs] = useState<any[]>([]); // Use an appropriate type for NFT data
 
-  useEffect(() => {
-    // Fetch NFT data from the API
-    axios
-      .get("https://chat-backends-d0a914c9d2e6.herokuapp.com/wallet/getNft")
-      .then((response) => {
-        const data = response.data;
-        console.log(data.data, "data");
-        setNFTs(data.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // Fetch NFT data from the API
+  //   axios
+  //     .get("https://chat-backends-d0a914c9d2e6.herokuapp.com/wallet/getNft")
+  //     .then((response) => {
+  //       const data = response.data;
+  //       console.log(data.data, "data");
+  //       setNFTs(data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
   return (
     <div className="nft-container">
-      {nfts.map((nft) => (
+      {/* {nfts.map((nft) => (
         <>
           <div key={nft.id} className="nft-card">
             <img
@@ -44,7 +44,7 @@ const NFTAll: React.FC = () => {
             <p className="nft-token-id">token id: {nft.id}</p>
           </div>
         </>
-      ))}
+      ))} */}
     </div>
   );
 };

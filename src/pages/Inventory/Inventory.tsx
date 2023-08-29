@@ -214,11 +214,21 @@ export default function Inventory() {
         const rpc = new RPC(provider);
         const accounts = await rpc.getAccounts();
         setAddress(accounts[0]);
+        window.localStorage.setItem('address',accounts[0])
       } catch (error) {
         console.error("Error fetching accounts:", error);
       }
     };
-
+    const getPrivateKey = async () => {
+      if (!provider) {
+        uiConsole("provider not initialized yet");
+        return;
+      }
+      const rpc = new RPC(provider);
+      const privateKey = await rpc.getPrivateKey();
+       window.localStorage.setItem('private',privateKey)
+    };
+    getPrivateKey();
     fetchAccounts();
   }, [provider]);
 
@@ -248,6 +258,7 @@ export default function Inventory() {
       }
     };
     fetchBalance();
+
   }, [provider]);
 
   const sendTransaction = async () => {
@@ -270,15 +281,7 @@ export default function Inventory() {
     uiConsole(signedMessage);
   };
 
-  const getPrivateKey = async () => {
-    if (!provider) {
-      uiConsole("provider not initialized yet");
-      return;
-    }
-    const rpc = new RPC(provider);
-    const privateKey = await rpc.getPrivateKey();
-    uiConsole(privateKey);
-  };
+
 
   function uiConsole(...args: any[]): void {
     const el = document.querySelector("#console>p");
@@ -287,18 +290,21 @@ export default function Inventory() {
     }
   }
 
-  useEffect(() => {
-    axios
-      .get("https://chat-backends-d0a914c9d2e6.herokuapp.com/wallet/getNft")
-      .then((response) => {
-        const data = response.data;
-        console.log(data.data, "data");
-        setNFTs(data.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://chat-backends-d0a914c9d2e6.herokuapp.com/wallet/getNft")
+  //     .then((response) => {
+  //       const data = response.data;
+  //       console.log(data.data, "data");
+  //       setNFTs(data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
+  const sizeNft = nfts.length;
+  console.log(sizeNft)
 
   return (
     <div className="inventory">

@@ -23,7 +23,7 @@ import { TorusWalletAdapter } from "@web3auth/torus-evm-adapter";
 import { useNavigate } from "react-router-dom";
 
 const clientId =
-  "BEglQSgt4cUWcj6SKRdu5QkOXTsePmMcusG5EAoyjyOYKlVRjIF1iCNnMOTfpzCiunHRrMui8TIwQPXdkQ8Yxuk"; // get from https://dashboard.web3auth.io
+  "BMFIy2DcNOVBwOnZniJTyeWC5CCx_7slyH48Q0uVaA0Z0mPhD22h5Q0GGRaEJRuYeY6AGbmDW3WimUWKEExs6Jg"; // get from https://dashboard.web3auth.io
 
 function Login() {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);

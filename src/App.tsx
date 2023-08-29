@@ -50,6 +50,13 @@ const App = () => {
       address: address,
       price: "0.3",
     },
+    {
+      tokenId: 3,
+      name: "NFT 3",
+      imageSrc: "https://th.bing.com/th/id/OIG.lVXjWwlHyIo4QdjnC1YE",
+      address: address,
+      price: "0.3",
+    },
   ];
   return (
     <Router>
